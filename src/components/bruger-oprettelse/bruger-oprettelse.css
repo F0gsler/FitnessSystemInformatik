@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+/* Main container */
+.titlebox {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+  padding: 2.5rem;
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+  font-family: 'Orbitron', sans-serif;
+  position: relative;
+}
+
+/* Scan line effect overlay */
+.titlebox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 215, 0, 0.02) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+}
+
+/* Title header */
+.title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #ffd700;
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #1a1a00 0%, #2a2a00 100%);
+  border: 2px solid #ffd700;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+/* Input container */
+.inputplace {
+  color: #ffd700;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  font-family: 'Orbitron', sans-serif;
+  position: relative;
+  z-index: 1;
+}
+
+/* Form inputs */
+input, textarea, select {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid #ffd700;
+  color: #ffd700;
+  padding: 0.75rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.95rem;
+  box-shadow: inset 0 0 5px rgba(255, 215, 0, 0.1);
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(255, 215, 0, 0.6);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4), inset 0 0 5px rgba(255, 215, 0, 0.1);
+  border-color: #fff;
+}
+
+/* Buttons */
+button {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #000;
+  border: 2px solid #ffd700;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect x="14" y="0" width="4" height="32" fill="%23ff0000"/><rect x="12" y="4" width="8" height="4" fill="%23ffaa00" opacity="0.6"/></svg>') 16 16, grab;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  transform: scale(1.03);
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect x="14" y="0" width="4" height="32" fill="%23ff0000"/><rect x="12" y="2" width="8" height="6" fill="%23ffaa00" opacity="0.8"/></svg>') 16 16, grab;
+}
+
+button:active {
+  transform: scale(0.98);
+}

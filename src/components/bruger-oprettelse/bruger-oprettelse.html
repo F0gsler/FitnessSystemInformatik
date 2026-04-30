@@ -1,0 +1,15 @@
+<div class="titlebox">
+    <h1 class="title">Bruger Oprettelse</h1>
+</div>
+<div class="inputplace">
+    <p class="inputguide">Her kan du oprette en bruger</p>
+    <p>Skriv dit navn her</p>
+    <input type="text" [(ngModel)]="navn" placeholder="Dit navn">
+    <p>Skriv din email</p>
+    <input type="email" [(ngModel)]="email" placeholder="Din Email">
+    <p>Skriv dit password</p>
+    <input type="password" [(ngModel)]="password" placeholder="Dit password">
+    
+    <button (click)="opretBruger()">Opret Bruger</button>
+</div>
+
