@@ -1,0 +1,15 @@
+<div class="titlebox">
+    <h1 class="title">Login Page</h1>
+</div>
+<div class="inputplace">
+    <p>Skriv din email</p>
+    <input type="email" [(ngModel)]="email" placeholder="Din Email">
+    <p>Skriv dit password</p>
+    <input type="password" [(ngModel)]="password" placeholder="Dit password">
+    
+    <button (click)="loginBruger()">Login</button>
+</div>
+<div class="inputplace">
+    <p>Hvis du ingen konto har, så opret en konto her</p>
+    <button (click)="opretBruger()">Opret Konto</button>
+</div>
