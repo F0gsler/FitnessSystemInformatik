@@ -49,6 +49,80 @@
 
 /* Input container */
 .inputplace {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  padding: 2rem;
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  font-family: 'Orbitron', sans-serif;
+  position: relative;
+}
+
+/* Input guide text */
+.inputguide {
+  font-size: 1.2rem;
+  color: #ffd700;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+/* Input labels */
+.inputplace p {
+  font-size: 1rem;
+  color: #ffffff;
+  margin: 0.5rem 0 0.2rem 0;
+  font-weight: 400;
+}
+
+/* Input fields */
+.inputplace input {
+  padding: 0.8rem;
+  border: 2px solid #ffd700;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: 'Orbitron', sans-serif;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+.inputplace input:focus {
+  border-color: #ffed4e;
+  box-shadow: 0 0 15px rgba(255, 237, 78, 0.4);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+}
+
+/* Buttons */
+.inputplace button {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #ffd700;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.5rem;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.inputplace button:hover {
+  background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+.inputplace button:active {
+  transform: translateY(0);
+}
+.inputplace {
   color: #ffd700;
   font-size: 1rem;
   display: flex;
@@ -80,7 +154,6 @@ input:focus, textarea:focus, select:focus {
   border-color: #fff;
 }
 
-/* Buttons */
 button {
   background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
   color: #000;
