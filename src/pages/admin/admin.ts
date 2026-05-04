@@ -6,4 +6,22 @@ import { Component } from '@angular/core';
   templateUrl: './admin.html',
   styleUrl: './admin.css',
 })
-export class Admin {}
+export class Admin {
+    num: number = 1;
+
+  setNum(n: number) {
+    this.num = n;
+  }
+
+  getTekst(): string {
+    if (this.num === 1) return 'Dashboard';
+    else if (this.num === 2) return 'Pages';
+    else if (this.num === 3) return 'Admin';
+    else if (this.num === 4) return 'Helpers';
+    else if (this.num === 5) return 'Media Manager';
+    else if (this.num === 6) return 'Config';
+    else if (this.num === 7) return 'Api Tester';
+    else if (this.num === 8) return 'Page Designer';
+    else return 'Not working';
+  }
+}
