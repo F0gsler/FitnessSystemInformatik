@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-admin',
-  imports: [],
+  imports: [NgIf],
   templateUrl: './admin.html',
   styleUrl: './admin.css',
 })

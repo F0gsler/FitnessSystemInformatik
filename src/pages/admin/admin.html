@@ -15,6 +15,106 @@
   </div>
 </div>
 
-<div class="content">
-  <p>Tekst: {{ getTekst() }}</p>
+<div class="admin-layout">
+  <!-- Original Text Box -->
+  <div class="text-box">
+    <p>Tekst: {{ getTekst() }}</p>
+  </div>
+
+  <!-- Desktop layout for Dashboard (1) and Admin (3) -->
+  <div class="desktop-layout" *ngIf="num === 1 || num === 3">
+    <div class="desktop-row">
+      <div class="desktop-card"></div>
+      <div class="desktop-card"></div>
+      <div class="desktop-card"></div>
+    </div>
+    <div class="desktop-large-card"></div>
+  </div>
+
+  <!-- Page layout (2) -->
+  <div class="overview-box" *ngIf="num === 2">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width: 40px;"><input type="checkbox"></th>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Date</th>
+          <th>Tags</th>
+          <th>Star</th>
+          <th>Created at</th>
+          <th>Updated at</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>1</td>
+          <td>Homepage</td>
+          <td>2016-04-01</td>
+          <td>Old</td>
+          <td>No star</td>
+          <td>2016-04-01 12:00</td>
+          <td>2016-04-17 14:30</td>
+          <td>Done</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>2</td>
+          <td>Blog</td>
+          <td>2022-10-07</td>
+          <td>Special</td>
+          <td>Star</td>
+          <td>2022-10-07 10:00</td>
+          <td>2022-11-15 14:30</td>
+          <td>Working on</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>3</td>
+          <td>About us</td>
+          <td>2021-09-05</td>
+          <td>New</td>
+          <td>No star</td>
+          <td>2021-09-05 13:48</td>
+          <td>2021-09-12 14:39</td>
+          <td>Done</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>4</td>
+          <td>Contract</td>
+          <td>2020-11-23</td>
+          <td>New-Special</td>
+          <td>No star</td>
+          <td>2020-11-23 12:00</td>
+          <td>2020-11-27 16:37</td>
+          <td>Done</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>5</td>
+          <td>Cases</td>
+          <td>2018-01-06</td>
+          <td>Special</td>
+          <td>Star</td>
+          <td>2018-01-06 12:33</td>
+          <td>2018-01-09 12:30</td>
+          <td>Request access</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>6</td>
+          <td>Clients</td>
+          <td>2017-06-02</td>
+          <td>New</td>
+          <td>Star</td>
+          <td>2017-06-02 14:45</td>
+          <td>2017-06-03 14:00</td>
+          <td>Working on</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

@@ -382,6 +382,217 @@ body {
   }
 }
 /* Main content - sits next to the sidebar */
+.admin-layout {
+  margin-left: 280px;
+  min-height: 100vh;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%);
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.admin-layout::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b35, #f7931e, #ff6b35);
+  background-size: 200% 100%;
+  animation: adminGlow 3s ease-in-out infinite;
+}
+
+/* Overview Box - Large container */
+.overview-box {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 15px;
+  padding: 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,107,53,0.2);
+  border-top: 5px solid #ff6b35;
+  position: relative;
+  min-height: 250px;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Desktop Dashboard Layout */
+.desktop-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.desktop-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.desktop-card,
+.desktop-large-card,
+.admin-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 15px;
+  border: 1px solid rgba(255,107,53,0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.desktop-card {
+  min-height: 150px;
+}
+
+.desktop-large-card {
+  min-height: 260px;
+}
+
+.admin-card {
+  background: linear-gradient(135deg, #eef2ff 0%, #f8fbff 100%);
+  border: 1px solid rgba(102,126,234,0.25);
+  border-left: 5px solid #667eea;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-card:hover,
+.desktop-card:hover,
+.desktop-large-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.12);
+}
+
+.admin-overview {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.admin-top-row,
+.admin-bottom-row {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.admin-top-row {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.admin-bottom-row {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.admin-card-small {
+  min-height: 140px;
+}
+
+.admin-card-medium {
+  min-height: 220px;
+}
+
+/* Data Table Styling */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+.data-table thead {
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+  position: sticky;
+  top: 0;
+}
+
+.data-table th {
+  color: #ffffff;
+  padding: 1.25rem;
+  text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  border-bottom: 2px solid rgba(255,107,53,0.3);
+}
+
+.data-table td {
+  padding: 1.25rem;
+  border-bottom: 1px solid #e2e8f0;
+  color: #4a5568;
+  font-size: 0.95rem;
+  background: #ffffff;
+  min-height: 40px;
+}
+
+.data-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.data-table tbody tr:hover {
+  background: rgba(255,107,53,0.05);
+}
+
+.data-table input[type="checkbox"] {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+/* Text box - top box */
+.text-box {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 15px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,107,53,0.2);
+  border-left: 5px solid #ff6b35;
+  position: relative;
+  z-index: 2;
+}
+
+.text-box p {
+  color: #2d3748;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .admin-layout {
+    margin-left: 0;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .text-box {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .text-box p {
+    font-size: 1.8rem;
+  }
+
+  .overview-box {
+    min-height: 200px;
+    padding: 1.5rem;
+  }
+
+  .desktop-row {
+    grid-template-columns: 1fr;
+  }
+
+  .desktop-card,
+  .desktop-large-card {
+    min-height: 140px;
+    padding: 1.5rem;
+  }
+}
+
+/* Old content class for backwards compatibility */
 .content {
   margin-left: 280px;
   min-height: 100vh;
