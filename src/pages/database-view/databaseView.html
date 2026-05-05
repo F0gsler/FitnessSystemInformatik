@@ -1,0 +1,43 @@
+<div class="box">
+  <h1>Admin</h1>
+  <div class="menu">
+    <button (click)="setNum(1)">Dashboard</button>
+    <button (click)="setNum(2)">Page</button>
+    <button (click)="setNum(3)">Admin</button>
+    <button (click)="setNum(4)">Helpers</button>
+    <button (click)="setNum(5)">Database</button>
+    <button (click)="setNum(6)">Config</button>
+    <button (click)="setNum(7)">Api tester</button>
+    <button (click)="setNum(8)">Page designer</button>
+  </div>
+  <div class="Entries">
+    <p>showing {{ users.length }} {{ users.length === 1 ? 'entry' : 'entries' }}</p>
+  </div>
+</div>
+
+<div class="content">
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of users; track user.email; let i = $index) {
+        <tr>
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.navn }}</td>
+          <td>{{ user.email }}</td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="3" style="text-align: center; padding: 2rem; color: #6b7280;">
+            Ingen brugere endnu
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
