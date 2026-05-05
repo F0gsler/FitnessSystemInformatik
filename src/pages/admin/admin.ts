@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './admin.css',
 })
 export class Admin {
-    num: number = 1;
+    num: number = 0;
 
-  setNum(n: number) {
-    this.num = n;
+  setNum(num: number) {
+    this.num = num;
   }
 
   getTekst(): string {
