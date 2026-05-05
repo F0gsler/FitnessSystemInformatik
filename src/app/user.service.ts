@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 export interface User {
+  id: number;
   navn: string;
   email: string;
   password: string;
@@ -10,7 +11,7 @@ export interface User {
   providedIn: 'root'
 })
 export class UserService {
-  private readonly STORAGE_KEY = 'fitness_users';
+  private readonly STORAGE_KEY = 'brugere';   // <-- ændret fra 'fitness_users'
 
   constructor() { }
 
@@ -29,13 +30,14 @@ export class UserService {
   createUser(navn: string, email: string, password: string): boolean {
     const users = this.getUsers();
 
-    // Tjek om email allerede eksisterer
     if (users.some(user => user.email === email)) {
-      return false; // Bruger eksisterer allerede
+      return false;
     }
 
-    // Tilføj ny bruger
-    users.push({ navn, email, password });
+    // Find næste id
+    const nextId = users.length > 0 ? Math.max(...users.map(u => u.id)) + 1 : 1;
+
+    users.push({ id: nextId, navn, email, password });
     this.saveUsers(users);
     return true;
   }
