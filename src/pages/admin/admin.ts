@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BookingService } from '../../app/booking.service';
 import { Router } from '@angular/router';
 import { UserService, User } from '../../app/user.service';
 
@@ -12,17 +13,10 @@ export class Admin {
     num: number = 0;
     users: User[] = [];
 
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(private bookingService: BookingService) {}
 
-  setNum(num: number) {
-    this.num = num;
-  }
-    ngOnInit(): void {
-    this.loadUsers();
-  }
-
-  loadUsers(): void {
-    this.users = this.userService.getUsers();
+  setNum(n: number) {
+    this.num = n;
   }
 
   getTekst(): any {
@@ -35,5 +29,9 @@ export class Admin {
     else if (this.num === 7) return 'Api Tester';
     else if (this.num === 8) return 'Page Designer';
     else return 'Not working';
+  }
+
+  setMaxNum(num: number) {
+    this.bookingService.setMaxNum(num);
   }
 }

@@ -16,15 +16,21 @@
 <p>Her ser du alle vores hold</p>
 <div id="yoga">
 <p>Yoga test</p>
-<button id="bookyoga">Book Now</button>
+<button id="bookyoga" (click)="setMaxNum(2)" (click)="setDeltagerPlads()">Book Now</button>
+<p>ledig pladser: {{this.deltagernum}} ud af {{this.holdnum}}</p>
+
 </div>
 <div id="spinning">
 <p>Spinning test</p>
-<button id="bookspinning">Book Now</button>
+
+<button id="bookspinning" (click)="setMaxNum(2)" (click)="setDeltagerPlads()">Book Now</button>
+<p>ledig pladser: {{this.deltagernum}} ud af {{this.holdnum}}</p>
+
 </div>
 <div id="styrketræning">
 <p>Styrketræning test</p>
-<button id="bookstyrketræning">Book Now</button>
+<button id="bookstyrketræning" (click)="setMaxNum(2)" (click)="setDeltagerPlads()">Book Now</button>
+<p>ledig pladser: {{this.deltagernum}} ud af {{this.holdnum}}</p>
 </div>
 <div id="zumba">
 <p>Zumba test</p>
