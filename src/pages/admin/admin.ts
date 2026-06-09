@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BookingService } from '../../app/booking.service';
 
 @Component({
   selector: 'app-admin',
@@ -8,6 +9,8 @@ import { Component } from '@angular/core';
 })
 export class Admin {
     num: number = 1;
+
+  constructor(private bookingService: BookingService) {}
 
   setNum(n: number) {
     this.num = n;
@@ -23,5 +26,9 @@ export class Admin {
     else if (this.num === 7) return 'Api Tester';
     else if (this.num === 8) return 'Page Designer';
     else return 'Not working';
+  }
+
+  setMaxNum(num: number) {
+    this.bookingService.setMaxNum(num);
   }
 }

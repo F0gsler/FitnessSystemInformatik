@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BookingService } from '../../app/booking.service';
 
 @Component({
   selector: 'app-login-page',
@@ -12,7 +13,7 @@ export class LoginPage {
   email: string = '';
   password: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private bookingService: BookingService) {}
 
   loginBruger() {
     const data = localStorage.getItem('brugere');
@@ -33,4 +34,9 @@ export class LoginPage {
   opretBruger() {
     this.router.navigate(['/Oprettelse']);
   }
+
+  setMaxNum() {
+    this.bookingService.setMaxNum(2);
+  }
+
 }

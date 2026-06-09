@@ -7,7 +7,7 @@
     <p>Skriv dit password</p>
     <input type="password" [(ngModel)]="password" placeholder="Dit password">
     
-    <button (click)="loginBruger()">Login</button>
+    <button (click)="loginBruger(); setMaxNum()">Login</button>
 </div>
 <div class="inputplace">
     <p>Hvis du ingen konto har, så opret en konto her</p>
