@@ -18,7 +18,7 @@ body {
   flex-direction: column;
   gap: 1.5rem;
   max-width: 640px;
-  margin: 3rem auto;
+  margin: 1rem auto;
   padding: 2.5rem;
   background: linear-gradient(180deg, rgba(30,41,59,0.95), rgba(15,23,42,0.95));
   border: 2px solid rgba(255,107,53,0.7);

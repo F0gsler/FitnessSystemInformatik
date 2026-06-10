@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BookingService } from '../../app/booking.service';
+import { UserService } from '../../app/user.service';
+import { BookingService, ClassBooking } from '../../app/booking.service';
 
 @Component({
   selector: 'app-booking',
@@ -8,26 +9,55 @@ import { BookingService } from '../../app/booking.service';
   styleUrl: './booking.css',
 })
 export class Booking implements OnInit {
+  classes: ClassBooking[] = [];
+  currentUserEmail: string = '';
 
-  deltagernum: number = 0;
-  holdnum: number = 0;
-
-  constructor(private bookingService: BookingService) {}
+  constructor(
+    private bookingService: BookingService,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
-    this.holdnum = this.bookingService.getHoldnum();
+    this.loadClasses();
+    this.getCurrentUserEmail();
   }
 
-  setMaxNum(holdnum: number) {
-    this.bookingService.setMaxNum(holdnum);
-    this.holdnum = holdnum;
+  loadClasses(): void {
+    this.classes = this.bookingService.getClasses();
   }
 
-  setDeltagerPlads(){
-    if (this.deltagernum >= this.holdnum){
-      console.log("Holdet er fyldt");
-    } else {
-      this.deltagernum++;
+  getCurrentUserEmail(): void {
+    const users = this.userService.getUsers();
+    if (users.length > 0) {
+      this.currentUserEmail = users[0].email;
     }
+  }
+
+  bookClass(classId: string): void {
+    if (!this.currentUserEmail) {
+      return;
+    }
+
+    const success = this.bookingService.bookClass(classId, this.currentUserEmail);
+    this.loadClasses();
+  }
+
+  cancelBooking(classId: string): void {
+    if (!this.currentUserEmail) return;
+
+    const success = this.bookingService.cancelBooking(classId, this.currentUserEmail);
+    this.loadClasses();
+  }
+
+  isUserBooked(classId: string): boolean {
+    return this.bookingService.isUserBooked(classId, this.currentUserEmail);
+  }
+
+  getAvailableSpots(classItem: ClassBooking): number {
+    return classItem.maxCapacity - classItem.bookedUsers.length;
+  }
+
+  isClassFull(classItem: ClassBooking): boolean {
+    return classItem.bookedUsers.length >= classItem.maxCapacity;
   }
 }

@@ -1,4 +1,6 @@
 <div class="booking">
+    <h1 id="headertitle">PulseFit</h1>
+    <h1 id="headertitle">_________________________</h1>
     <h1 id="headertitle">Booking</h1>
     <p id="hedertext">Her kan du lave dine fitness bookinger.</p>
 </div>
@@ -14,28 +16,31 @@
 </div>
 <div class="liste">
 <p>Her ser du alle vores hold</p>
-<div id="yoga">
-<p>Yoga test</p>
-<button id="bookyoga" (click)="setMaxNum(2)" (click)="setDeltagerPlads()">Book Now</button>
-<p>ledig pladser: {{this.deltagernum}} ud af {{this.holdnum}}</p>
 
-</div>
-<div id="spinning">
-<p>Spinning test</p>
-
-<button id="bookspinning" (click)="setMaxNum(2)" (click)="setDeltagerPlads()">Book Now</button>
-<p>ledig pladser: {{this.deltagernum}} ud af {{this.holdnum}}</p>
-
-</div>
-<div id="styrketræning">
-<p>Styrketræning test</p>
-<button id="bookstyrketræning" (click)="setMaxNum(2)" (click)="setDeltagerPlads()">Book Now</button>
-<p>ledig pladser: {{this.deltagernum}} ud af {{this.holdnum}}</p>
-</div>
-<div id="zumba">
-<p>Zumba test</p>
-<button id="bookzumba">Book Now</button>
-</div>
+@for (classItem of classes; track classItem.id) {
+  <div [id]="classItem.id">
+    <p><strong>{{ classItem.name }}</strong></p>
+    <p>Pladser: <span [style.color]="isClassFull(classItem) ? 'red' : 'green'">
+      {{ classItem.bookedUsers.length }} / {{ classItem.maxCapacity }}
+    </span></p>
+    
+    @if (isClassFull(classItem)) {
+      <p style="color: red; font-weight: bold;">Fuldt booket</p>
+    }
+    
+    @if (isUserBooked(classItem.id)) {
+      <button (click)="cancelBooking(classItem.id)" style="background-color: #ff6b6b;">Annuller</button>
+    } @else {
+      <button [disabled]="isClassFull(classItem)" (click)="bookClass(classItem.id)" [id]="'book' + classItem.id">
+        @if (isClassFull(classItem)) {
+          Fuldt
+        } @else {
+          Book Now
+        }
+      </button>
+    }
+  </div>
+}
 </div>
 </div>
 

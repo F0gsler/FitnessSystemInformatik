@@ -35,8 +35,4 @@ export class LoginPage {
     this.router.navigate(['/Oprettelse']);
   }
 
-  setMaxNum() {
-    this.bookingService.setMaxNum(2);
-  }
-
 }
